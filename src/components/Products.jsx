@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import React, { useContext } from 'react';
 import AppContext from '@context/AppContext';
 import Product from '@components/Product';
@@ -8,7 +9,7 @@ const Products = () => {
   const { products } = useContext(AppContext);
 
   const handleAddToCart = product => () => {
-    console.log(product)
+    console.log(product);
   };
 
   return (

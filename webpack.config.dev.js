@@ -6,7 +6,7 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 module.exports = {
   entry: {
     home: './src/index.js',
-    header: './src/Header/index.js'
+    header: './src/Header/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -15,7 +15,7 @@ module.exports = {
   },
   mode: 'development',
   resolve: {
-    extensions: ['.js', ".ts", '.tsx', '.jsx'],
+    extensions: ['.js', '.ts', '.tsx', '.jsx'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
@@ -24,7 +24,7 @@ module.exports = {
       '@routes': path.resolve(__dirname, 'src/routes/'),
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
-    }
+    },
   },
   module: {
     rules: [
@@ -64,8 +64,8 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: '/node_modules/'
-      }
+        exclude: '/node_modules/',
+      },
     ],
   },
   devServer: {
@@ -94,6 +94,6 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-    }
+    },
   },
 };

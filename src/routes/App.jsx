@@ -1,4 +1,6 @@
-"use-es6";
+/* eslint-disable import/no-unresolved */
+
+'use-es6';
 
 import React, { Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -10,9 +12,7 @@ import AppContext from '@context/AppContext';
 import useInitialState from '@hooks/useInitialState';
 import { hot } from 'react-hot-loader/root';
 
-const AsyncCheckoutContainer = React.lazy(() =>
-  import("@containers/Checkout")
-);
+const AsyncCheckoutContainer = React.lazy(() => import('@containers/Checkout'));
 
 const App = () => {
   const initialState = useInitialState();
@@ -32,10 +32,11 @@ const App = () => {
               </Layout>
             </BrowserRouter>
           </AppContext.Provider>
-        </Suspense>)
-        : <h1>Cargando...</h1>}
+        </Suspense>
+      ) :
+        <h1>Loading Page...</h1>}
     </>
   );
-}
+};
 
 export default hot(App);
