@@ -1,6 +1,5 @@
-# platzi-store
-Curso de Pruebas unitarias con Jest
+# Webpack-React
 
-Clase: 9
+Curso práctico de webpack,
 
-webpack.config.js
+Platzi-Store.
