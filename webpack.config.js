@@ -2,14 +2,14 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   entry: {
     home: './src/index.js',
-    header: './src/Header/index.js'
+    header: './src/Header/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,7 +17,7 @@ module.exports = {
     chunkFilename: '[name].bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', 'ts', 'tsx'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
@@ -26,7 +26,7 @@ module.exports = {
       '@routes': path.resolve(__dirname, 'src/routes/'),
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
-    }
+    },
   },
   module: {
     rules: [
@@ -59,6 +59,11 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset',
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: '/node_modules/',
+      },
     ],
   },
   devServer: {
@@ -85,7 +90,7 @@ module.exports = {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
-      new TerserPlugin()
+      new TerserPlugin(),
     ],
     splitChunks: {
       chunks: 'all',
@@ -109,7 +114,7 @@ module.exports = {
           enforce: true,
           priority: 10,
         },
-      }
-    }
+      },
+    },
   },
 };

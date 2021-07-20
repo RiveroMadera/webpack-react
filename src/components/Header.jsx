@@ -1,17 +1,20 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/jsx-curly-newline */
 /* eslint-disable arrow-parens */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../styles/components/Header.styl';
 import logo from '@assets/logo-gndx.png';
-import Logo from '@components/Logo';
+/* import Logo from '@components/Logo';*/
+import Title from './Title.tsx';
 
 const Header = props => (
   <div className="Header">
     <h1 className="Header-title">
       <Link to="/">
         <img src={logo} alt="logo" width="32" />
-        <Logo />
+        <Title title="Platzi Store" />
       </Link>
     </h1>
     <div className="Header-checkout">
