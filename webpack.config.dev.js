@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: {
+  entry: { //'react-hot-loader/patch',
     home: './src/index.js',
     header: './src/Header/index.js',
   },
@@ -73,7 +73,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 3005,
-    // hot: true,
+    /* hot: true, */
   },
   plugins: [
     new HtmlWebPackPlugin({
